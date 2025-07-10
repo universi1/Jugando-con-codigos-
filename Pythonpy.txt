@@ -1,0 +1,9 @@
+Python
+
+try:
+    num1 = int(input("Ingresa el primer número: "))
+    num2 = int(input("Ingresa el segundo número: "))
+    suma = num1 + num2
+    print(f"La suma es: {suma}")
+except ValueError:
+    print("Entrada inválida. Por favor, ingresa números enteros.")

@@ -1,0 +1,15 @@
+Python
+
+def es_primo(numero):
+    if numero <= 1:
+        return False
+    for i in range(2, int(numero**0.5) + 1):
+        if numero % i == 0:
+            return False
+    return True
+
+# Ejemplos de uso:
+print(f"¿Es 7 primo? {es_primo(7)}")
+print(f"¿Es 10 primo? {es_primo(10)}")
+print(f"¿Es 2 primo? {es_primo(2)}")
+print(f"¿Es 1 primo? {es_primo(1)}")

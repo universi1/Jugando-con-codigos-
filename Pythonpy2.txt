@@ -1,0 +1,5 @@
+Python
+
+numeros = [10, 20, 30, 40, 50]
+suma_total = sum(numeros)
+print(f"La suma de todos los números en la lista es: {suma_total}")

@@ -1,0 +1,55 @@
+Python
+
+def gestionar_tareas():
+    tareas = []
+
+    while True:
+        print("\n--- Gestor de Tareas ---")
+        print("1. Añadir tarea")
+        print("2. Ver tareas")
+        print("3. Marcar tarea como completada")
+        print("4. Salir")
+
+        opcion = input("Elige una opción: ")
+
+        if opcion == '1':
+            tarea = input("Ingresa la nueva tarea: ")
+            tareas.append({"tarea": tarea, "completada": False})
+            print("Tarea añadida.")
+        elif opcion == '2':
+            if not tareas:
+                print("No hay tareas pendientes.")
+            else:
+                print("\n--- Tus Tareas ---")
+                for i, t in enumerate(tareas):
+                    estado = "✓" if t["completada"] else " "
+                    print(f"{i + 1}. [{estado}] {t['tarea']}")
+        elif opcion == '3':
+            if not tareas:
+                print("No hay tareas para marcar como completadas.")
+                continue
+            try:
+                ver_tareas = ""
+                for i, t in enumerate(tareas):
+                    estado = "✓" if t["completada"] else " "
+                    ver_tareas += f"{i + 1}. [{estado}] {t['tarea']}\n"
+                
+                print("\n--- Tus Tareas ---")
+                print(ver_tareas)
+                
+                num_tarea = int(input("Ingresa el número de la tarea a marcar como completada: ")) - 1
+                if 0 <= num_tarea < len(tareas):
+                    tareas[num_tarea]["completada"] = True
+                    print("Tarea marcada como completada.")
+                else:
+                    print("Número de tarea inválido.")
+            except ValueError:
+                print("Entrada inválida. Por favor, ingresa un número.")
+        elif opcion == '4':
+            print("¡Hasta luego!")
+            break
+        else:
+            print("Opción no válida. Por favor, intenta de nuevo.")
+
+# Para ejecutar el gestor de tareas, descomenta la siguiente línea:
+# gestionar_tareas()
